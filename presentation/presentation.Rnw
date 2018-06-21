@@ -4,6 +4,10 @@
 %% include template:
 \input{./templates/metropolis_cert}
 
+%% Custom stuff:
+\usepackage[]{algorithm2e}
+\usepackage{csquotes}
+\usepackage{dsfont}
 
 %% Title:
 %% ----------------------------------------
@@ -48,11 +52,17 @@ options(width=60)
 \end{frame}
 
 
-\section{About the Template}
+\section{What is Component-Wise Boosting}
 \SweaveInput{chapters/intro.Rnw}
 
-\section{Include latex-math}
-\SweaveInput{chapters/latex_math.Rnw}
+\section{About Compboost}
+\SweaveInput{chapters/about_cboost.Rnw}
+
+\section{Small Usecase}
+\SweaveInput{chapters/small_usecase.Rnw}
+
+\section{Next Steps}
+\SweaveInput{chapters/next_steps.Rnw}
 
 
 \begin{frame}[plain, standout]

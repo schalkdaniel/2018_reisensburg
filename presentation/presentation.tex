@@ -1,3 +1,55 @@
+%% include header:
+\input{./header}
+
+%% include template:
+\input{./templates/metropolis_cert}
+
+%% Custom stuff:
+\usepackage[]{algorithm2e}
+\usepackage{csquotes}
+\usepackage{dsfont}
+
+%% Title:
+%% ----------------------------------------
+
+\title{Compboost}
+\subtitle{Modular framework for component-wise boosting}
+\date{\today}
+\author{Daniel Schalk}
+\institute{LMU Munich\\Working Group Computational Statistics}
+
+%% Wrap Shaded around Shunk to have a nices R output:
+%% --------------------------------------------------
+
+% Include before begin document to have Schunk:
+\usepackage{Sweave}
+
+\let\OldSchunk\Schunk
+\let\endOldSchunk\endSchunk
+
+\renewenvironment{Schunk}
+ {\small\begin{Shaded}\OldSchunk}
+ {\endOldSchunk\end{Shaded}\normalsize}
+
+%% Prevent code from printing over margin:
+%% --------------------------------------------------
+ 
+
+%% Content:
+%% ----------------------------------------
+
+\begin{document}
+\input{presentation-concordance}
+
+\maketitle
+
+\begin{frame}[plain]{Table of contents}
+	\setbeamertemplate{section in toc}[sections numbered]
+	\tableofcontents[hideallsubsections]
+\end{frame}
+
+
+\section{What is Component-Wise Boosting}
 \begin{frame}[fragile]{Component-Wise Boosting: Terminology}
 
 
@@ -125,3 +177,33 @@ So, why another boosting implementation?
 %   \url{https://mlr-org.github.io/mlr-tutorial/devel/html/}
 % \end{center}
 % \end{frame}
+
+\section{About Compboost}
+\begin{frame}{About Compboost}
+
+
+
+\end{frame}
+
+
+\section{Small Usecase}
+\begin{frame}{}
+
+
+
+\end{frame}
+
+\section{Next Steps}
+\begin{frame}{}
+
+
+
+\end{frame}
+
+
+\begin{frame}[plain, standout]
+  Questions?
+\end{frame}
+
+
+\end{document}
