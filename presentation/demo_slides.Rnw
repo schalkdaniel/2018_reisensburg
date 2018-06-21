@@ -1,0 +1,63 @@
+%% include header:
+\input{./header}
+
+%% include template:
+\input{./templates/metropolis_cert}
+
+
+%% Title:
+%% ----------------------------------------
+
+\title{Compboost}
+\subtitle{Modular framework for component-wise boosting}
+\date{\today}
+\author{Daniel Schalk}
+\institute{LMU Munich\\Working Group Computational Statistics}
+
+%% Wrap Shaded around Shunk to have a nices R output:
+%% --------------------------------------------------
+
+% Include before begin document to have Schunk:
+\usepackage{Sweave}
+
+\let\OldSchunk\Schunk
+\let\endOldSchunk\endSchunk
+
+\renewenvironment{Schunk}
+ {\small\begin{Shaded}\OldSchunk}
+ {\endOldSchunk\end{Shaded}\normalsize}
+
+%% Prevent code from printing over margin:
+%% --------------------------------------------------
+ 
+<<echo=FALSE>>=
+options(width=60)
+@
+
+%% Content:
+%% ----------------------------------------
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\maketitle
+
+\begin{frame}[plain]{Table of contents}
+	\setbeamertemplate{section in toc}[sections numbered]
+	\tableofcontents[hideallsubsections]
+\end{frame}
+
+
+\section{About the Template}
+\SweaveInput{chapters/intro.Rnw}
+
+\section{Include latex-math}
+\SweaveInput{chapters/latex_math.Rnw}
+
+
+\begin{frame}[plain, standout]
+  Questions?
+\end{frame}
+
+
+\end{document}

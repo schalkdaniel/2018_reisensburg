@@ -1,0 +1,41 @@
+\begin{frame}[fragile]{Manual Code Chunks}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{images/comp_boosting.png}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{R Code Chunks}
+
+<<>>=
+rnorm(10)
+@
+
+\end{frame}
+
+\begin{frame}[fragile]{R Plot Chunks}
+
+To include a \alert{centered plot}, \texttt{Sweave} you need to wrap
+\texttt{center} environment:
+
+\begin{center}
+<<echo=FALSE,fig=TRUE,height=4>>=
+library(ggplot2)
+ggplot(faithfuld, aes(waiting, eruptions, z = density)) +
+  geom_raster(aes(fill = density)) +
+  geom_contour(colour = "white")
+@
+\end{center}
+
+\end{frame}
+
+\begin{frame}{URLs}
+
+URLs can be easily included by \texttt{\textbackslash url\{myurl\}} and are illustrated in
+orange:
+\begin{center}
+  \url{https://mlr-org.github.io/mlr-tutorial/devel/html/}
+\end{center}
+\end{frame}
