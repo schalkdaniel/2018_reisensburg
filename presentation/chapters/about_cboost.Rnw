@@ -1,6 +1,51 @@
-\begin{frame}{About Compboost}
+\begin{frame}[fragile]{About Compboost}
 
+\begin{itemize}
 
+	\item Installation
+<<eval=FALSE>>=
+devtools::install_github("schalkdaniel/compboost")
+library(compboost)
+@
+<<include=FALSE>>=
+devtools::load_all("/home/daniel/github_repos/compboost")
+@
+
+\end{itemize}
 
 \end{frame}
 
+
+\begin{frame}[fragile]{Compboost Members and Member Functions}
+
+\begin{itemize}
+
+	\item \textbf{Member Functions}:
+	\begin{itemize}
+	
+	  \item \texttt{addBaselearner()}
+	  \item \texttt{addLogger()}
+	  \item \texttt{train()}
+	  \item \texttt{coef()}
+	  \item \texttt{predict()}
+	  \item \texttt{risk()}
+	  \item \texttt{selected()}
+	  \item \texttt{plot()}
+	  \item \texttt{...}
+
+	\end{itemize}
+  
+	\item \textbf{Public Members}:
+  \begin{itemize}
+	
+	  \item \texttt{model}
+	  \item \texttt{bl.factory.list}
+	  \item \texttt{loss}
+	  \item \texttt{optimizer}
+	  \item \texttt{...}
+
+	\end{itemize}
+
+\end{itemize}
+
+\end{frame}

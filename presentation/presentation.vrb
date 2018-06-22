@@ -1,18 +1,6 @@
-\frametitle{Available R Packages}
+\frametitle{Plot Results}
 
-\begin{itemize}
-	\item Tree-based implementations:
-  \begin{itemize}
-    \item \texttt{xgboost}
-    \item \texttt{catboost}
-    \item \texttt{gbm}
-  \end{itemize}
-  \item Model-based implementations:
-  \begin{itemize}
-    \item \texttt{mboost}
-	\end{itemize}
-
-\end{itemize}
-
-So, why another boosting implementation?
+\begin{center}
+\includegraphics{presentation-r}
+\end{center}
 

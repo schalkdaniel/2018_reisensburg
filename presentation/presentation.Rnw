@@ -28,7 +28,7 @@
 \let\endOldSchunk\endSchunk
 
 \renewenvironment{Schunk}
- {\small\begin{Shaded}\OldSchunk}
+ {\scriptsize\begin{Shaded}\OldSchunk}
  {\endOldSchunk\end{Shaded}\normalsize}
 
 %% Prevent code from printing over margin:

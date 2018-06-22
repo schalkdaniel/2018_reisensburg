@@ -1,0 +1,5 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{What is Component-Wise Boosting}{3}{0}{1}
+\beamer@sectionintoc {2}{About Compboost}{8}{0}{2}
+\beamer@sectionintoc {3}{Small Usecase}{11}{0}{3}
+\beamer@sectionintoc {4}{Next Steps}{15}{0}{4}

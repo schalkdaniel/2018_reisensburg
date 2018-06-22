@@ -1,5 +1,50 @@
-\begin{frame}{}
+\begin{frame}[fragile]{Initializng Model}
+
+<<>>=
+mtcars$mpg_cat = ifelse(mtcars$mpg > 15, "A", "B")
+cboost = Compboost$new(mtcars, "mpg", loss = QuadraticLoss$new())
+
+cboost$addBaselearner("wt", "spline", PSplineBlearnerFactory, 
+	degree = 3, knots = 10, penalty = 2, differences = 2)
+cboost$addBaselearner("mpg_cat", "linear", PolynomialBlearnerFactory, 
+	degree = 1, intercept = FALSE)
+
+cboost$train(2000, trace=FALSE) 
+cboost
+@
 
 
+\end{frame}
+
+\begin{frame}[fragile]{Plot Results}
+
+<<eval=FALSE>>=
+library(ggplot2)
+library(ggthemes)
+
+cboost$plot("wt_spline", iters = c(100, 500, 1000, 2000)) +
+	labs(title = "Effect of Weight", 
+		subtitle = "Additive contribution of linear predictor") +
+	theme_tufte() + 
+	scale_color_brewer(palette = "Spectral")
+@
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Plot Results}
+
+\begin{center}
+<<out.width="11cm",out.height="6cm",echo=FALSE,fig.asp=0.5455>>=
+library(ggplot2)
+library(ggthemes)
+
+cboost$plot("wt_spline", iters = c(100, 500, 1000, 2000)) +
+	labs(title = "Effect of Weight", 
+		subtitle = "Additive contribution of linear predictor") +
+	theme_tufte() + 
+	scale_color_brewer(palette = "Spectral")
+@
+\end{center}
 
 \end{frame}
