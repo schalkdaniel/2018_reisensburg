@@ -1,0 +1,44 @@
+\begin{frame}{Compboost vs Other Implementations}
+
+\begin{itemize}
+
+  \item
+    Compboost is not designed to have huge predictive power such as
+    \texttt{xgboost}.
+    
+  \item
+    Hence, the only competitor is \texttt{mboost}:
+    \begin{itemize}
+    
+      \item
+        \texttt{compboost} is not as comprehensive as \texttt{mboost} (just
+        two base-learners and three pre defined losses).
+      
+      \item
+        \texttt{compboost} is not able to use sparse matrices at the moment.
+    
+    \end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Runtime Comparison}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{images/bm_nrows.pdf}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Memory Comparison}
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{images/iters13141516.pdf}
+\end{figure}
+
+\end{frame}

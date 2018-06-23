@@ -18,6 +18,10 @@ cboost
 
 \begin{frame}[fragile]{Plot Results}
 
+With \texttt{plot()} it is possible to illustrate a specific effect. Additionaly,
+we can specify which iterations we want to visualize. The returned object is an
+ordinary \texttt{ggplot} object:
+
 <<eval=FALSE>>=
 library(ggplot2)
 library(ggthemes)
@@ -35,7 +39,7 @@ cboost$plot("wt_spline", iters = c(100, 500, 1000, 2000)) +
 \begin{frame}[fragile]{Plot Results}
 
 \begin{center}
-<<out.width="11cm",out.height="6cm",echo=FALSE,fig.asp=0.5455>>=
+<<out.width="11cm",out.height="6cm",echo=FALSE,fig.asp=0.5455,warning=FALSE>>=
 library(ggplot2)
 library(ggthemes)
 
@@ -46,5 +50,68 @@ cboost$plot("wt_spline", iters = c(100, 500, 1000, 2000)) +
 	scale_color_brewer(palette = "Spectral")
 @
 \end{center}
+
+\end{frame}
+
+\begin{frame}[fragile]{Using a Custom Logger}
+
+\begin{itemize}
+
+  \item[1.] Define a custom loss which returns the AUC as \enquote{loss}:
+<<>>=
+# Define custom "loss function":
+aucLoss = function (truth, response) {
+  # Convert response on f basis to probs using sigmoid:
+	probs = 1 / (1 + exp(-response))
+
+  #  Calculate AUC:
+	mlr:::measureAUC(probabilities = probs, truth = truth, 
+	  negative = -1, positive = 1) 
+}
+
+# Define also gradient and constant initalization since they are 
+# required by the custom constructors:
+gradDummy = function (truth, response) { return (NA) }
+constInitDummy = function (truth, response) { return (NA) }
+
+# Define loss:
+auc.loss = CustomLoss$new(aucLoss, gradDummy, constInitDummy)
+@
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Using a Custom Logger}
+
+\begin{itemize}
+
+  \item[2.] Register a new out of bag risk logger with the custom loss:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+
+\hlstd{cboost}\hlopt{$}\hlkwd{addLogger}\hlstd{(}\hlkwc{logger} \hlstd{= OobRiskLogger,} \hlkwc{use.as.stopper} \hlstd{=} \hlnum{FALSE}\hlstd{,}
+  \hlkwc{logger.id} \hlstd{=} \hlstr{"auc_oob"}\hlstd{, auc.loss,} \hlnum{0.01}\hlstd{, cboost}\hlopt{$}\hlkwd{prepareData}\hlstd{(mtcars[idx.test, ]),}
+  \hlstd{mtcars[idx.test,} \hlstr{"mpg_bin"}\hlstd{])}
+\hlstd{cboost}\hlopt{$}\hlkwd{addLogger}\hlstd{(}\hlkwc{logger} \hlstd{= TimeLogger,} \hlkwc{use.as.stopper} \hlstd{=} \hlnum{FALSE}\hlstd{,}
+  \hlkwc{logger.id} \hlstd{=} \hlstr{"time"}\hlstd{,} \hlkwc{max.time} \hlstd{=} \hlnum{0}\hlstd{,} \hlkwc{time.unit} \hlstd{=} \hlstr{"microseconds"}\hlstd{)}
+
+\hlstd{cboost}\hlopt{$}\hlkwd{train}\hlstd{(}\hlnum{1000}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+      Iteration |  Out of Bag Risk |     microseconds |
+-------------------------------------------------------
+           1/10 |             0.91 |                1 |
+           2/10 |             0.91 |             2000 |
+           3/10 |             0.91 |             3490 |
+           4/10 |             0.91 |             5218 |
+           5/10 |             0.91 |             6293 |
+           6/10 |             0.91 |             7152 |
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\end{itemize}
 
 \end{frame}

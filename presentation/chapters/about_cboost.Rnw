@@ -8,7 +8,15 @@ devtools::install_github("schalkdaniel/compboost")
 library(compboost)
 @
 <<include=FALSE>>=
-devtools::load_all("/home/daniel/github_repos/compboost")
+dir.linux   = "/home/daniel/github_repos/compboost"
+dir.windows = "../../../compboost"
+
+if (dir.exists(dir.windows)) {
+  devtools::load_all(dir.windows)
+}
+if (dir.exists(dir.linux)) {
+  devtools::load_all(dir.linux)
+}
 @
 
 \end{itemize}

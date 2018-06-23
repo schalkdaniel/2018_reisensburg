@@ -1,3 +1,5 @@
+\documentclass[10pt]{beamer}
+
 %% include header:
 \input{./header}
 
@@ -22,25 +24,33 @@
 %% --------------------------------------------------
 
 % Include before begin document to have Schunk:
-\usepackage{Sweave}
 
-\let\OldSchunk\Schunk
-\let\endOldSchunk\endSchunk
+\let\Oldkframe\kframe
+\let\endOldkframe\endkframe
 
-\renewenvironment{Schunk}
- {\scriptsize\begin{Shaded}\OldSchunk}
- {\endOldSchunk\end{Shaded}\normalsize}
+\renewenvironment{kframe}
+ {\scriptsize\definecolor{shadecolor}{RGB}{240,240,240}\begin{Shaded}\Oldkframe}
+ {\endOldkframe\end{Shaded}\normalsize}
 
 %% Prevent code from printing over margin:
 %% --------------------------------------------------
  
-
+<<echo=FALSE>>=
+options(width=60)
+@
 
 %% Content:
 %% ----------------------------------------
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
+
+<<include=FALSE>>=
+library(knitr)
+opts_chunk$set(
+  concordance=TRUE
+)
+@
+
 
 \maketitle
 
@@ -51,16 +61,30 @@
 
 
 \section{What is Component-Wise Boosting}
-\SweaveInput{chapters/intro.Rnw}
+
+<<child='chapters/intro.Rnw'>>=
+@
+
+\section{Compboost vs Other Implementations}
+<<child='chapters/cboost_vs_others.Rnw'>>=
+@
 
 \section{About Compboost}
-\SweaveInput{chapters/about_cboost.Rnw}
+
+<<child='chapters/about_cboost.Rnw'>>=
+@
 
 \section{Small Usecase}
-\SweaveInput{chapters/small_usecase.Rnw}
 
+<<child='chapters/small_usecase.Rnw'>>=
+@
+  
+  
 \section{Next Steps}
-\SweaveInput{chapters/next_steps.Rnw}
+
+<<child='chapters/next_steps.Rnw'>>=
+@
+
 
 
 \begin{frame}[plain, standout]

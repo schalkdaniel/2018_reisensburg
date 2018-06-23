@@ -89,7 +89,7 @@ Initialize $\fh^{[0]}(x) = \argmin_{c\in\R} \riske(c)$ \;
   \end{itemize}
   \item Model-based implementations:
   \begin{itemize}
-    \item \texttt{mboost}
+    \item \texttt{mboost} (\texttt{gamboost}, \texttt{gamboostLSS})
 	\end{itemize}
 
 \end{itemize}
@@ -97,31 +97,3 @@ Initialize $\fh^{[0]}(x) = \argmin_{c\in\R} \riske(c)$ \;
 So, why another boosting implementation?
 
 \end{frame}
-
-
-% \begin{frame}{}
-
-% \begin{frame}[fragile]{R Plot Chunks}
-
-% To include a \alert{centered plot}, \texttt{Sweave} you need to wrap
-% \texttt{center} environment:
-
-% \begin{center}
-% <<echo=FALSE,fig=TRUE,height=4>>=
-% library(ggplot2)
-% ggplot(faithfuld, aes(waiting, eruptions, z = density)) +
-%   geom_raster(aes(fill = density)) +
-%   geom_contour(colour = "white")
-% @
-% \end{center}
-
-% \end{frame}
-
-% \begin{frame}{URLs}
-
-% URLs can be easily included by \texttt{\textbackslash url\{myurl\}} and are illustrated in
-% orange:
-% \begin{center}
-%   \url{https://mlr-org.github.io/mlr-tutorial/devel/html/}
-% \end{center}
-% \end{frame}
