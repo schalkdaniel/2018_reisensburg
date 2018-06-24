@@ -32,23 +32,20 @@
  {\scriptsize\definecolor{shadecolor}{RGB}{240,240,240}\begin{Shaded}\Oldkframe}
  {\endOldkframe\end{Shaded}\normalsize}
 
-%% Prevent code from printing over margin:
-%% --------------------------------------------------
- 
-<<echo=FALSE>>=
-options(width=60)
-@
-
 %% Content:
 %% ----------------------------------------
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 <<include=FALSE>>=
 library(knitr)
 opts_chunk$set(
   concordance=TRUE
 )
+
+# Prevent code from printing over margin:
+options(width=60)
 @
 
 
