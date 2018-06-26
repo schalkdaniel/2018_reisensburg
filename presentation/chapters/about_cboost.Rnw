@@ -1,59 +1,53 @@
-\begin{frame}[fragile]{About Compboost}
+\begin{frame}{About Compboost}
 
 \begin{itemize}
 
-	\item Installation
-<<eval=FALSE>>=
-devtools::install_github("schalkdaniel/compboost")
-library(compboost)
-@
-<<include=FALSE>>=
-dir.linux   = "/home/daniel/github_repos/compboost"
-dir.windows = "../../../compboost"
+	\item
+	  With \texttt{mboost} as standard, we want to keep the modular principle of defining custom base-learner and losses.
 
-if (dir.exists(dir.windows)) {
-  devtools::load_all(dir.windows)
-}
-if (dir.exists(dir.linux)) {
-  devtools::load_all(dir.linux)
-}
-@
+	\item 
+	  Core is written in \texttt{C++} and exposed by \texttt{Rcpp} to obtain high performance and full memory control.
+
+	\item
+		\texttt{R} API is written with \texttt{R6} to provide convenient wrapper.
+
+	\item 
+	  Major parts of \texttt{compboost} functions are unit tested against \texttt{mboost} to ensure correct use.
 
 \end{itemize}
 
 \end{frame}
 
 
-\begin{frame}[fragile]{Compboost Members and Member Functions}
+\begin{frame}{Compboost: Functionality}
+
+Main classes:
 
 \begin{itemize}
 
-	\item \textbf{Member Functions}:
-	\begin{itemize}
+	\item
+		Base-learner and loss classes.
 	
-	  \item \texttt{addBaselearner()}
-	  \item \texttt{addLogger()}
-	  \item \texttt{train()}
-	  \item \texttt{coef()}
-	  \item \texttt{predict()}
-	  \item \texttt{risk()}
-	  \item \texttt{selected()}
-	  \item \texttt{plot()}
-	  \item \texttt{...}
-
-	\end{itemize}
-  
-	\item \textbf{Public Members}:
-  \begin{itemize}
-	
-	  \item \texttt{model}
-	  \item \texttt{bl.factory.list}
-	  \item \texttt{loss}
-	  \item \texttt{optimizer}
-	  \item \texttt{...}
-
-	\end{itemize}
+	\item
+		Logger class for early stopping and logging mechanisms.
 
 \end{itemize}
+
+Custom functionality:
+
+\begin{itemize}
+
+	\item
+		\texttt{R} or \texttt{C++} base-learner.
+	
+	\item
+		\texttt{R} or \texttt{C++} loss objects.
+	
+	\item
+		Custom logging and stopping rules via custom losses.
+
+\end{itemize}
+
+Custom classes can be defined without recompiling the whole package, even when using \texttt{C++} functions.
 
 \end{frame}

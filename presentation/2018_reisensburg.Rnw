@@ -56,13 +56,9 @@ options(width=60)
 \end{frame}
 
 
-\section{What is Component-Wise Boosting}
+\section{Why Component-Wise Boosting}
 
 <<child='chapters/intro.Rnw'>>=
-@
-
-\section{Compboost vs Other Implementations}
-<<child='chapters/cboost_vs_others.Rnw'>>=
 @
 
 \section{About Compboost}
@@ -74,8 +70,11 @@ options(width=60)
 
 <<child='chapters/small_usecase.Rnw'>>=
 @
-  
-  
+
+\section{Small Benchmark}
+<<child='chapters/cboost_vs_others.Rnw'>>=
+@
+
 \section{Next Steps}
 
 <<child='chapters/next_steps.Rnw'>>=

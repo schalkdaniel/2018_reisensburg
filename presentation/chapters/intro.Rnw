@@ -1,28 +1,43 @@
-\begin{frame}[fragile]{Component-Wise Boosting: Terminology}
+% \begin{frame}[fragile]{Component-Wise Boosting: Terminology}
 
 
-\begin{itemize}
+% \begin{itemize}
 
-  \item
-    Loss Function: 
-    \[
-      L: \mathcal{Y} \times \mathcal{X} \rightarrow \mathbb{R}
-    \]
+%   \item
+%     Loss Function: 
+%     \[
+%       L: \mathcal{Y} \times \mathcal{X} \rightarrow \mathbb{R}
+%     \]
 
-  \item
-    Empirical Risk:
-    \[
-      \riske(\theta) = \frac{1}{n} \sumin L\left(\yi, f(\xi)\right)
-    \]
+%   \item
+%     Empirical Risk:
+%     \[
+%       \riske(\theta) = \frac{1}{n} \sumin L\left(\yi, f(\xi)\right)
+%     \]
 
-  \item 
-    Estimated model/parameter at iteration $m$: 
-    \[
-      \fmh, \theta^{[m]}
-    \]
+%   \item 
+%     Estimated model/parameter at iteration $m$: 
+%     \[
+%       \fmh, \theta^{[m]}
+%     \]
 
-\end{itemize}
+%   \item
+%     Base-learners are assumed to be linear:
+%     \[
+%       b_j(x, \theta^{[m]}) + b_j(x, \theta^{[m^\prime]}) = b_j(x, \theta^{[m]} + \theta^{[m^\prime]})
+%     \]
 
+% \end{itemize}
+
+
+% \end{frame}
+
+\begin{frame}{Why Component-Wise Boosting?}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/comp_boosting.png}
+\end{figure}
 
 \end{frame}
 
@@ -30,70 +45,78 @@
 
 \begin{frame}[fragile]{Component-Wise Boosting: The Idea}
 
-\begin{figure}
-\centering
-\includegraphics[width=0.7\textwidth]{images/comp_boosting.png}
-\end{figure}
 
-\vspace{-1.5cm}
 
-\begin{align*}
-  \text{Iteration 1:} \ &\hat{f}^{[1]}(x) = \beta b_3(x_3, \theta^{[1]}) \\
-  \text{Iteration 2:} \ &\hat{f}^{[2]}(x) = \beta b_3(x_3, \theta^{[1]}) + \beta b_3(x_3, \theta^{[2]}) \\
-  \text{Iteration 2:} \ &\hat{f}^{[3]}(x) = \beta b_3(x_3, \theta^{[1]}) + \beta b_3(x_3, \theta^{[2]}) + \beta b_1(x_1, \theta^{[3]}) \\ \\
-  \Rightarrow\ &\hat{f}^{[3]}(x) = \beta \left( b_3(x_3, \theta^{[1]} + \theta^{[2]}) + b_1(x_1, \theta^{[3]}) \right)
-\end{align*}
+% \vspace{-1.5cm}
+
+% \begin{align*}
+%   \text{Iteration 1:} \ &\hat{f}^{[1]}(x) = \beta b_3(x_3, \theta^{[1]}) \\
+%   \text{Iteration 2:} \ &\hat{f}^{[2]}(x) = \beta b_3(x_3, \theta^{[1]}) + \beta b_3(x_3, \theta^{[2]}) \\
+%   \text{Iteration 2:} \ &\hat{f}^{[3]}(x) = \beta b_3(x_3, \theta^{[1]}) + \beta b_3(x_3, \theta^{[2]}) + \beta b_1(x_1, \theta^{[3]}) \\ \\
+%   \Rightarrow\ &\hat{f}^{[3]}(x) = \beta \left( b_3(x_3, \theta^{[1]} + \theta^{[2]}) + b_1(x_1, \theta^{[3]}) \right)
+% \end{align*}
 
 
 \end{frame}
 
 
 
-\begin{frame}{Component-Wise Boosting: The Algorithm}
+% \begin{frame}{Component-Wise Boosting: The Algorithm}
 
-\begin{Shaded}
-\begin{algorithm}[H]
-% \KwData{this text}
-\scriptsize
-\KwResult{Component-wise boosting model $\fh(x)$}
-Initialize $\fh^{[0]}(x) = \argmin_{c\in\R} \riske(c)$ \;
-  \For{$m \in \{1, \dots, M\}$}{\vspace{0.2cm}
-    // Update pseudo residuals: \\
-    $r^{[m](i)} = -\left[ \frac{\delta}{\delta f(\xi)} L\left(\yi, f(\xi)\right) \right]_{f = f^{[m-1]}},\ \forall i \in \{1, \dots, n\}$ \;\vspace{0.2cm}
-    // Get index $j^\ast$ of $m$-th base-learner from optimizer:\\
-    \For{$j \in \{1, \dots, J\}$}{
-      // Fit each base-learner $b_j^{[m]}$ to the pseudo residuals: \\
-      $\hat{\theta}_j^{[m]} = \argmin_{\theta_j} \sum\limits_{i=1}^n\left( 
-      \rmi - b_j^{[m]}(\xi, \theta_j)\right)^2$ \;\vspace{0.2cm}
-      // Calculate the SSE of the fitted base-learner:\\
-      $\mathsf{SSE}_j = \sum\limits_{i=1}^n \left(\rmi - b_j^{[m]}(\xi, \hat{\theta}_j)\right)^2$ \; 
-    }
-    // Add selected component to model:\\
-    $\fmh(x) = \fmdh(x) + \beta b^{[m]}_{j^\ast}\left(x, \theta_{j^\ast}^{[m]}\right)$
-  }
-\textbf{Returns:} $\fh(x) = \fmh(x)$\;
-\end{algorithm}
-\end{Shaded}
+% \begin{Shaded}
+% \begin{algorithm}[H]
+% % \KwData{this text}
+% \scriptsize
+% \KwResult{Component-wise boosting model $\fh(x)$}
+% Initialize $\fh^{[0]}(x) = \argmin_{c\in\R} \riske(c)$ \;
+%   \For{$m \in \{1, \dots, M\}$}{\vspace{0.2cm}
+%     // Update pseudo residuals: \\
+%     $r^{[m](i)} = -\left[ \frac{\delta}{\delta f(\xi)} L\left(\yi, f(\xi)\right) \right]_{f = f^{[m-1]}},\ \forall i \in \{1, \dots, n\}$ \;\vspace{0.2cm}
+%     // Get index $j^\ast$ of $m$-th base-learner from optimizer:\\
+%     \For{$j \in \{1, \dots, J\}$}{
+%       // Fit each base-learner $b_j^{[m]}$ to the pseudo residuals: \\
+%       $\hat{\theta}_j^{[m]} = \argmin_{\theta_j} \sum\limits_{i=1}^n\left( 
+%       \rmi - b_j^{[m]}(\xi, \theta_j)\right)^2$ \;\vspace{0.2cm}
+%       // Calculate the SSE of the fitted base-learner:\\
+%       $\mathsf{SSE}_j = \sum\limits_{i=1}^n \left(\rmi - b_j^{[m]}(\xi, \hat{\theta}_j)\right)^2$ \; 
+%     }
+%     // Add selected component to model:\\
+%     $\fmh(x) = \fmdh(x) + \beta b^{[m]}_{j^\ast}\left(x, \theta_{j^\ast}^{[m]}\right)$
+%   }
+% \textbf{Returns:} $\fh(x) = \fmh(x)$\;
+% \end{algorithm}
+% \end{Shaded}
 
-\end{frame}
+% \end{frame}
 
 
 \begin{frame}[fragile]{Available R Packages}
 
+Most popular package for model-based boosting is \texttt{mboost}:
+
 \begin{itemize}
-	\item Tree-based implementations:
-  \begin{itemize}
-    \item \texttt{xgboost}
-    \item \texttt{catboost}
-    \item \texttt{gbm}
-  \end{itemize}
-  \item Model-based implementations:
-  \begin{itemize}
-    \item \texttt{mboost} (\texttt{gamboost}, \texttt{gamboostLSS})
-	\end{itemize}
+	
+  \item
+    Huge functionality: Lots of available base-learner and losses.
+
+  \item 
+    Suited to boost more complex analyses such as survival tasks.
+
+  \item 
+    Nice possibility to extend with own base-learner and losses. 
 
 \end{itemize}
 
 So, why another boosting implementation?
+
+\begin{itemize}
+
+  \item
+    Major parts of the algorithm are implemented in \texttt{R} which is not the best choice for expensive algorithms.
+
+  \item 
+    The implementation is hard to debug due to nested scopes and no standard \texttt{R} system like \texttt{S3} or \texttt{S4}.
+
+\end{itemize}
 
 \end{frame}
