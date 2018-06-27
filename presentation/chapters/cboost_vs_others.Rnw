@@ -24,21 +24,23 @@
 % \end{frame}
 
 
-\begin{frame}{Runtime Comparison Against Mboost}
+\begin{frame}[fragile]{Runtime Comparison Against Mboost}
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{images/bm_nrows.pdf}
-\end{figure}
+\begin{center}
+<<out.width="11cm",out.height="6cm",echo=FALSE,fig.asp=0.5455,warning=FALSE,message=FALSE,fig.height=6,fig.width=11>>=
+source(file = "./../benchmark/runtime_benchmark/plot_results.R")
+@
+\end{center}
 
 \end{frame}
 
 
 \begin{frame}{Memory Comparison Against Mboost}
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{images/iters13141516.pdf}
-\end{figure}
+\begin{center}
+<<out.width="11cm",out.height="6cm",echo=FALSE,fig.asp=0.5455,warning=FALSE,message=FALSE,fig.height=6,fig.width=11>>=
+source(file = "./../benchmark/mem_benchmark/plot_results.R")
+@
+\end{center}
 
 \end{frame}

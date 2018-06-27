@@ -32,6 +32,17 @@
  {\scriptsize\definecolor{shadecolor}{RGB}{240,240,240}\begin{Shaded}\Oldkframe}
  {\endOldkframe\end{Shaded}\normalsize}
 
+\makeatletter
+\let\latexl@section\l@section
+\def\l@section#1#2{\begingroup\let\numberline\@gobble\latexl@section{#1}{#2}\endgroup}
+\makeatother
+
+\setbeamerfont{bibliography item}{size=\footnotesize}
+\setbeamerfont{bibliography entry author}{size=\footnotesize}
+\setbeamerfont{bibliography entry title}{size=\footnotesize}
+\setbeamerfont{bibliography entry location}{size=\footnotesize}
+\setbeamerfont{bibliography entry note}{size=\footnotesize}
+
 %% Content:
 %% ----------------------------------------
 
@@ -50,11 +61,9 @@ options(width=60)
 
 \maketitle
 
-\begin{frame}[plain]{Table of contents}
-	\setbeamertemplate{section in toc}[sections numbered]
-	\tableofcontents[hideallsubsections]
+\begin{frame}[plain]{Table of Contents}
+	\tableofcontents
 \end{frame}
-
 
 \section{Why Component-Wise Boosting}
 
@@ -86,5 +95,13 @@ options(width=60)
   Questions?
 \end{frame}
 
+\begin{frame}[plain]{References}
+
+\vphantom{\cite{mboost1}\cite{Rcpp}\cite{eddelbuettel2017exposing}}
+
+\bibliographystyle{alpha}
+\bibliography{bibliography}
+
+\end{frame}
 
 \end{document}

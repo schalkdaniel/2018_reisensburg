@@ -17,3 +17,29 @@
 \end{itemize}
 
 \end{frame}
+
+\begin{frame}{Where to Find}
+
+\begin{itemize}
+
+  \item
+    Source is available on \emph{GitHub}:
+    \begin{center}
+      \url{www.github.com/schalkdaniel/compboost}
+    \end{center}
+
+  \item 
+    For additional informations visit the project page:
+    \begin{center}
+    	\url{www.compboost.org}
+    \end{center}
+
+  \item 
+  	on the \href{https://github.com/schalkdaniel/compboost/issues}{issue tracker}.
+
+  \item
+    The package is licensed under a \href{https://www.gnu.org/licenses/gpl-3.0.de.html}{GPL}.
+
+\end{itemize}
+
+\end{frame}

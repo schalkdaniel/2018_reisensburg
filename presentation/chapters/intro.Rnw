@@ -36,16 +36,33 @@
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.6\textwidth]{images/comp_boosting.png}
+  \includegraphics[width=\textwidth]{images/comp_boosting.png}
 \end{figure}
 
 \end{frame}
 
 
 
-\begin{frame}[fragile]{Component-Wise Boosting: The Idea}
+\begin{frame}[fragile]{Why Component-Wise Boosting?}
 
+\begin{itemize}
 
+  \item
+    Inherent (unbiased) feature selection (see \cite{hofner2011framework}).
+    
+  \item
+    The resulting model is sparse since the important models are selected first.
+    
+  \item 
+    The parameters are updated iteratively. Therefore, the 
+    parameters are estimated on the fly and can be interpreted due to linearity of the
+    base-learners.
+
+  \item
+    Efficient model for learning in high-dimensional feature spaces ($p \gg n$).
+    
+    
+\end{itemize}
 
 % \vspace{-1.5cm}
 
