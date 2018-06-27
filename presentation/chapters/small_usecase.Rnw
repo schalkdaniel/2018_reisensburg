@@ -53,16 +53,20 @@ cboost
 
 \begin{frame}[fragile]{Access Results}
 
-<<out.width="0cm",out.height="0cm">>=
+<<>>=
 table(cboost$selected())
 head(cboost$risk())
-cboost$plot("age_spline", iters = c(100, 500, 1000, 2000))
+str(cboost$coef())
 @
 
 \end{frame}
 
 
 \begin{frame}[fragile]{Plot Results}
+
+<<eval=FALSE>>=
+cboost$plot("age_spline", iters = c(100, 500, 1000, 2000))
+@
 
 \begin{center}
 <<out.width="11cm",out.height="6cm",echo=FALSE,fig.asp=0.5455,warning=FALSE,message=FALSE>>=

@@ -6,13 +6,13 @@
 	  With \texttt{mboost} as standard, we want to keep the modular principle of defining custom base-learner and losses.
 
 	\item 
-	  Core is written in \texttt{C++} and exposed by \texttt{Rcpp} to obtain high performance and full memory control.
+	  Completely written in \texttt{C++} and exposed by \texttt{Rcpp} to obtain high performance and full memory control.
 
 	\item
 		\texttt{R} API is written with \texttt{R6} to provide convenient wrapper.
 
 	\item 
-	  Major parts of \texttt{compboost} functions are unit tested against \texttt{mboost} to ensure correct use.
+	  Major parts of the \texttt{compboost} functionality are unit tested against \texttt{mboost} to ensure correct use.
 
 \end{itemize}
 
@@ -21,7 +21,7 @@
 
 \begin{frame}{Compboost: Functionality}
 
-Main classes:
+Main components:
 
 \begin{itemize}
 
@@ -33,15 +33,15 @@ Main classes:
 
 \end{itemize}
 
-Custom functionality:
+Possible extensions:
 
 \begin{itemize}
 
 	\item
-		\texttt{R} or \texttt{C++} base-learner.
+		Custom \texttt{R} or \texttt{C++} base-learner.
 	
 	\item
-		\texttt{R} or \texttt{C++} loss objects.
+		Custom \texttt{R} or \texttt{C++} loss objects.
 	
 	\item
 		Custom logging and stopping rules via custom losses.

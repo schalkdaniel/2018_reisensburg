@@ -23,22 +23,22 @@
 \begin{itemize}
 
   \item
-    Source is available on \emph{GitHub}:
+    Developed on \emph{GitHub}:
     \begin{center}
       \url{www.github.com/schalkdaniel/compboost}
     \end{center}
 
   \item 
-    For additional informations visit the project page:
+    Additional resources on the project page:
     \begin{center}
     	\url{www.compboost.org}
     \end{center}
 
   \item 
-  	on the \href{https://github.com/schalkdaniel/compboost/issues}{issue tracker}.
+  	Bug reports via the \href{https://github.com/schalkdaniel/compboost/issues}{issue tracker}.
 
   \item
-    The package is licensed under a \href{https://www.gnu.org/licenses/gpl-3.0.de.html}{GPL}.
+    Contributions are welcome!
 
 \end{itemize}
 

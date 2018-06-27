@@ -48,7 +48,7 @@
 \begin{itemize}
 
   \item
-    Inherent (unbiased) feature selection (see \cite{hofner2011framework}).
+    Inherent (unbiased) feature selection  \cite{hofner2011framework}.
     
   \item
     The resulting model is sparse since the important models are selected first.
@@ -117,10 +117,10 @@ Most popular package for model-based boosting is \texttt{mboost}:
     Huge functionality: Lots of available base-learner and losses.
 
   \item 
-    Suited to boost more complex analyses such as survival tasks.
+    Suited to boost more complex learner to do, for instance, survival analyses.
 
   \item 
-    Nice possibility to extend with own base-learner and losses. 
+    Extendible with own base-learner and losses. 
 
 \end{itemize}
 
