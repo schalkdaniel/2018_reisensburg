@@ -37,9 +37,9 @@
   \item 
   	Bug reports via the \href{https://github.com/schalkdaniel/compboost/issues}{issue tracker}.
 
-  \item
-    Contributions are welcome!
-
 \end{itemize}
-
+\vspace{0.4cm}
+\begin{center}
+\textbf{Contributions are highly welcome!}
+\end{center}
 \end{frame}

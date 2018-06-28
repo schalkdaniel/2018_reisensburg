@@ -16,8 +16,8 @@
 
 \title{Compboost}
 \subtitle{Modular framework for component-wise boosting}
-\date{\today}
-\author{Daniel Schalk}
+\date{10 July 2018}
+\author{Daniel Schalk, Janek Thomas, Bernd Bischl}
 \institute{LMU Munich\\Working Group Computational Statistics}
 
 %% Wrap Shaded around Shunk to have a nices R output:
@@ -66,6 +66,7 @@ options(width=60)
 \end{frame}
 
 \section{Why Component-Wise Boosting}
+\addtocounter{framenumber}{-1}
 
 <<child='chapters/intro.Rnw'>>=
 @
@@ -89,15 +90,13 @@ options(width=60)
 <<child='chapters/next_steps.Rnw'>>=
 @
 
-
+\appendix
 
 \begin{frame}[plain, standout]
   Questions?
 \end{frame}
 
-\begin{frame}[plain]{References}
-
-\vphantom{\cite{mboost1}\cite{Rcpp}\cite{eddelbuettel2017exposing}}
+\begin{frame}[plain,allowframebreaks]{References}
 
 \bibliographystyle{alpha}
 \bibliography{bibliography}

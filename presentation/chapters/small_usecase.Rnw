@@ -9,7 +9,7 @@ cboost = Compboost$new(PimaIndiansDiabetes, "diabetes",
   loss = BinomialLoss$new())
 
 cboost$addBaselearner("age", "spline", PSplineBlearner, 
-  degree = 3, knots = 10, penalty = 2, differences = 2)
+  degree = 3, n.knots = 10, penalty = 2, differences = 2)
 cboost$addBaselearner("mass", "linear", PolynomialBlearner, 
   degree = 1, intercept = TRUE)
 @
@@ -32,10 +32,10 @@ data(PimaIndiansDiabetes, package = "mlbench")
 cboost = Compboost$new(PimaIndiansDiabetes, "diabetes", 
   loss = BinomialLoss$new())
 
-cboost$addBaselearner("age", "spline", PSplineBlearner, 
-	degree = 3, knots = 10, penalty = 2, differences = 2)
 cboost$addBaselearner("mass", "linear", PolynomialBlearner, 
-	degree = 1, intercept = TRUE)
+  degree = 1, intercept = TRUE)
+cboost$addBaselearner("age", "spline", PSplineBlearner, 
+	degree = 3, n.knots = 10, penalty = 2, differences = 2)
 @
 
 
@@ -106,12 +106,10 @@ my.poisson.loss = CustomLoss$new(lossPoisson, gradPoisson, constInitPoisson)
 data(VonBort, package = "vcd")
 
 cboost = Compboost$new(VonBort, "deaths", loss = my.poisson.loss)
-cboost$addBaselearner("year", "spline", PSplineBlearner, 
-  degree = 3, knots = 10, penalty = 2, differences = 2)
+cboost$addBaselearner("year", "spline", PSplineBlearner)
 cboost$train(100, trace = FALSE)
 
-mod = mboost(deaths ~ bbs(year, differences = 2, lambda = 2, 
-  degree = 3, knots = 10), data = VonBort, family = Poisson(), 
+mod = mboost(deaths ~ bbs(year, lambda = 2), data = VonBort, family = Poisson(), 
   control = boost_control(mstop = 100, nu = 0.05))
 
 head(cbind(

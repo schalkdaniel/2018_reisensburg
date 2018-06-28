@@ -6,7 +6,7 @@
 	  With \texttt{mboost} as standard, we want to keep the modular principle of defining custom base-learner and losses.
 
 	\item 
-	  Completely written in \texttt{C++} and exposed by \texttt{Rcpp} to obtain high performance and full memory control.
+	  Completely written in \texttt{C++} and exposed by \texttt{Rcpp} \cite{Rcpp,eddelbuettel2017exposing} to obtain high performance and full memory control.
 
 	\item
 		\texttt{R} API is written with \texttt{R6} to provide convenient wrapper.
