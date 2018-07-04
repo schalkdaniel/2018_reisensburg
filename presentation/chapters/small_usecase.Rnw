@@ -51,11 +51,12 @@ cboost
 
 \end{frame}
 
-\begin{frame}[fragile]{Access Results}
+\begin{frame}[fragile]{Access Results and Continue Training}
 
 <<>>=
 table(cboost$selected())
-head(cboost$risk())
+cboost$train(3000)
+str(cboost$risk())
 str(cboost$coef())
 @
 
@@ -65,7 +66,7 @@ str(cboost$coef())
 \begin{frame}[fragile]{Plot Results}
 
 <<eval=FALSE>>=
-cboost$plot("age_spline", iters = c(100, 500, 1000, 2000))
+cboost$plot("age_spline", iters = c(100, 500, 1000, 2000, 3000))
 @
 
 \begin{center}
@@ -73,7 +74,7 @@ cboost$plot("age_spline", iters = c(100, 500, 1000, 2000))
 library(ggplot2)
 library(ggthemes)
 
-cboost$plot("age_spline", iters = c(100, 500, 1000, 2000)) +
+cboost$plot("age_spline", iters = c(100, 500, 1000, 2000, 3000)) +
 	theme_tufte() + 
 	scale_color_brewer(palette = "Spectral")
 @
@@ -81,7 +82,9 @@ cboost$plot("age_spline", iters = c(100, 500, 1000, 2000)) +
 
 \end{frame}
 
-\begin{frame}[fragile]{Custom Poisson Loss: Definition}
+\begin{frame}[fragile]{Custom Loss: Definition}
+
+As an example we want to define a custom loss corresponding to the Poisson distribution:
 
 <<>>=
 lossPoisson = function (truth, response) {
@@ -100,7 +103,7 @@ my.poisson.loss = CustomLoss$new(lossPoisson, gradPoisson, constInitPoisson)
 \end{frame}
 
 
-\begin{frame}[fragile]{Custom Poisson Loss: Train Model}
+\begin{frame}[fragile]{Custom Loss: Train Model}
 
 <<>>=
 data(VonBort, package = "vcd")

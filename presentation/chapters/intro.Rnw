@@ -1,49 +1,13 @@
-% \begin{frame}[fragile]{Component-Wise Boosting: Terminology}
-
-
-% \begin{itemize}
-
-%   \item
-%     Loss Function: 
-%     \[
-%       L: \mathcal{Y} \times \mathcal{X} \rightarrow \mathbb{R}
-%     \]
-
-%   \item
-%     Empirical Risk:
-%     \[
-%       \riske(\theta) = \frac{1}{n} \sumin L\left(\yi, f(\xi)\right)
-%     \]
-
-%   \item 
-%     Estimated model/parameter at iteration $m$: 
-%     \[
-%       \fmh, \theta^{[m]}
-%     \]
-
-%   \item
-%     Base-learners are assumed to be linear:
-%     \[
-%       b_j(x, \theta^{[m]}) + b_j(x, \theta^{[m^\prime]}) = b_j(x, \theta^{[m]} + \theta^{[m^\prime]})
-%     \]
-
-% \end{itemize}
-
-
-% \end{frame}
-
 \begin{frame}{Why Component-Wise Boosting?}
+
+\vspace{-0.6cm}
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{images/comp_boosting.png}
+  \includegraphics[width=0.75\textwidth]{images/comp_boosting.png}
 \end{figure}
 
-\end{frame}
-
-
-
-\begin{frame}[fragile]{Why Component-Wise Boosting?}
+\vspace{-1.2cm}
 
 \begin{itemize}
 
@@ -60,17 +24,28 @@
     
 \end{itemize}
 
-% \vspace{-1.5cm}
-
-% \begin{align*}
-%   \text{Iteration 1:} \ &\hat{f}^{[1]}(x) = \beta b_3(x_3, \theta^{[1]}) \\
-%   \text{Iteration 2:} \ &\hat{f}^{[2]}(x) = \beta b_3(x_3, \theta^{[1]}) + \beta b_3(x_3, \theta^{[2]}) \\
-%   \text{Iteration 2:} \ &\hat{f}^{[3]}(x) = \beta b_3(x_3, \theta^{[1]}) + \beta b_3(x_3, \theta^{[2]}) + \beta b_1(x_1, \theta^{[3]}) \\ \\
-%   \Rightarrow\ &\hat{f}^{[3]}(x) = \beta \left( b_3(x_3, \theta^{[1]} + \theta^{[2]}) + b_1(x_1, \theta^{[3]}) \right)
-% \end{align*}
-
-
 \end{frame}
+
+
+
+% \begin{frame}[fragile]{Why Component-Wise Boosting?}
+% 
+% \begin{itemize}
+% 
+%   \item
+%     Inherent (unbiased) feature selection  \cite{hofner2011framework}.
+%     
+%   \item
+%     The resulting model is sparse since important effects are selected first and therefore 
+%     it is able to learn in high-dimensional feature spaces ($p \gg n$).
+%     
+%   \item 
+%     The parameters are updated iteratively. Therefore, the 
+%     whole trace of how the model evolves is available.    
+%     
+% \end{itemize}
+% 
+% \end{frame}
 
 
 
@@ -105,7 +80,7 @@
 
 \begin{frame}[fragile]{Available R Packages}
 
-Most popular package for model-based boosting is \texttt{mboost} \cite{mboost1}:
+Most popular package for model-based boosting is \texttt{mboost} \parbox{1cm}{\parbox{4cm}{\cite{mboost1}:}}
 
 \begin{itemize}
 	
@@ -113,7 +88,7 @@ Most popular package for model-based boosting is \texttt{mboost} \cite{mboost1}:
     Large number of available base-learner and losses.
 
   \item 
-    Suited for more complex problems:
+    Extended to more complex problems:
     \begin{itemize}
       \item Functional data \cite{brockhaus2017boosting}
       \item GAMLSS models \cite{mayr2012generalized}
@@ -124,7 +99,7 @@ Most popular package for model-based boosting is \texttt{mboost} \cite{mboost1}:
 
 \end{itemize}
 
-So, why another boosting implementation?
+\textbf{So, why another boosting implementation?}
 
 \begin{itemize}
 
@@ -135,7 +110,7 @@ So, why another boosting implementation?
     Complex implementation:
     \begin{itemize} 
       \item Nested scopes 
-      \item Mixture of different \texttt{R} class systems.
+      \item Mixture of different \texttt{R} class systems
     \end{itemize}
 \end{itemize}
 

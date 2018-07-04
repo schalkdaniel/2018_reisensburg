@@ -10,6 +10,7 @@
 \usepackage[]{algorithm2e}
 \usepackage{csquotes}
 \usepackage{dsfont}
+\usepackage{natbib} 
 
 %% Title:
 %% ----------------------------------------
@@ -17,7 +18,7 @@
 \title{Compboost}
 \subtitle{Modular framework for component-wise boosting}
 \date{10 July 2018}
-\author{Daniel Schalk, Janek Thomas, Bernd Bischl}
+\author{Daniel Schalk, Janek Thomas, Bernd Bischl \newline daniel.schalk@stat.uni-muenchen.de}
 \institute{LMU Munich\\Working Group Computational Statistics}
 
 %% Wrap Shaded around Shunk to have a nices R output:
@@ -52,6 +53,13 @@
 \setbeamerfont{bibliography entry location}{size=\footnotesize}
 \setbeamerfont{bibliography entry note}{size=\footnotesize}
 
+\setlength{\parskip}{0pt}
+
+\setlength{\OuterFrameSep}{-4pt}
+\makeatletter
+\preto{\@verbatim}{\topsep=-10pt \partopsep=-10pt }
+\makeatother
+
 %% Content:
 %% ----------------------------------------
 
@@ -70,12 +78,14 @@ options(width=60)
 
 \maketitle
 
-\begin{frame}[plain]{Table of Contents}
-	\tableofcontents
-\end{frame}
+\author{Daniel Schalk, Janek Thomas, Bernd Bischl}
+
+% \begin{frame}[plain]{Table of Contents}
+% 	\tableofcontents
+% \end{frame}
 
 \section{Why Component-Wise Boosting}
-\addtocounter{framenumber}{-1}
+% \addtocounter{framenumber}{-1}
 
 <<child='chapters/intro.Rnw'>>=
 @
@@ -101,15 +111,17 @@ options(width=60)
 
 \appendix
 
-\begin{frame}[plain, standout]
-  Questions?
-\end{frame}
+% \begin{frame}[plain, standout]
+%   Questions?
+% \end{frame}
 
-\begin{frame}[plain,allowframebreaks]{References}
-
-\bibliographystyle{apalike}
-\bibliography{bibliography}
-
+\begin{frame}[plain]{References}
+\begingroup
+  \renewcommand{\section}[2]{}
+  \scriptsize
+  \bibliographystyle{apalike}
+  \bibliography{bibliography}
+\endgroup
 \end{frame}
 
 \end{document}

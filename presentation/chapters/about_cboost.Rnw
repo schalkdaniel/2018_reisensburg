@@ -6,10 +6,10 @@
 	  With \texttt{mboost} as standard, we want to keep the modular principle of defining custom base-learner and losses.
 
 	\item 
-	  Completely written in \texttt{C++} and exposed by \texttt{Rcpp} \cite{Rcpp,eddelbuettel2017exposing} to obtain high performance and full memory control.
+	  Completely written in \texttt{C++} and exposed by \texttt{Rcpp} \parbox{0.5cm}{\parbox{3cm}{\cite{Rcpp}}} \cite{eddelbuettel2017exposing} to obtain high performance and full memory control.
 
 	\item
-		\texttt{R} API is written with \texttt{R6} to provide convenient wrapper.
+		\texttt{R} API is written in \texttt{R6} to provide convenient wrapper.
 
 	\item 
 	  Major parts of the \texttt{compboost} functionality are unit tested against \texttt{mboost} to ensure correct use.
