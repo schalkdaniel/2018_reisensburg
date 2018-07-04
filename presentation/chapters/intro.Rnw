@@ -104,7 +104,7 @@ Most popular package for model-based boosting is \texttt{mboost} \parbox{1cm}{\p
 \begin{itemize}
 
   \item
-    Main algorithm is implemented in \texttt{R} which is not the best choice for expensive algorithms.
+    The main parts of \texttt{mboost} are written in \texttt{R} and gets slow for large datasets.
 
   \item 
     Complex implementation:

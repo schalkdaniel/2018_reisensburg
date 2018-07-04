@@ -84,7 +84,7 @@ options(width=60)
 % 	\tableofcontents
 % \end{frame}
 
-\section{Why Component-Wise Boosting}
+\section{Why Component-Wise Boosting?}
 % \addtocounter{framenumber}{-1}
 
 <<child='chapters/intro.Rnw'>>=
@@ -95,12 +95,12 @@ options(width=60)
 <<child='chapters/about_cboost.Rnw'>>=
 @
 
-\section{Small Usecase}
+\section{Usecase}
 
 <<child='chapters/small_usecase.Rnw'>>=
 @
 
-\section{Small Benchmark}
+\section{Benchmark}
 <<child='chapters/cboost_vs_others.Rnw'>>=
 @
 

@@ -5,14 +5,17 @@
   \item
     Implementing more base-learner and loss functions.
     
-  \item 
-    Support for multiclass classification.
+  \item
+    Adding support for multiclass classification.
     
-  \item 
-    Parallel computations.
+  \item
+    Running the algorithm in parallel.
     
   \item 
     Using sparse matrices to store, e.g., spline data matrices.
+    
+  \item 
+    Releasing the package on \textit{CRAN}.
 
 \end{itemize}
 

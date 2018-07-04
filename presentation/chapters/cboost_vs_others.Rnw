@@ -1,33 +1,8 @@
-% \begin{frame}{Compboost vs Other Implementations}
 
-% \begin{itemize}
-
-%   \item
-%     Compboost is not designed to have huge predictive power such as
-%     \texttt{xgboost}.
-    
-%   \item
-%     Hence, the only competitor is \texttt{mboost}:
-%     \begin{itemize}
-    
-%       \item
-%         \texttt{compboost} is not as comprehensive as \texttt{mboost} (just
-%         two base-learners and three pre defined losses).
-      
-%       \item
-%         \texttt{compboost} is not able to use sparse matrices at the moment.
-    
-%     \end{itemize}
-
-% \end{itemize}
-
-% \end{frame}
-
-
-\begin{frame}[fragile]{Runtime Comparison Against Mboost}
+\begin{frame}[fragile]{Runtime Comparison With Mboost}
 
 \begin{center}
-<<out.width="11cm",out.height="6cm",echo=FALSE,fig.asp=0.5455,warning=FALSE,message=FALSE,fig.height=6,fig.width=11>>=
+<<out.width="11cm",out.height="6cm",echo=FALSE,fig.asp=0.5455,warning=FALSE,message=FALSE,fig.height=6,fig.width=11,fig.cap="Runtime benchmark on simulated data with 2000 iterations and 1000 base-learner.">>=
 source(file = "./../benchmark/runtime_benchmark/plot_results.R")
 @
 \end{center}
@@ -35,10 +10,10 @@ source(file = "./../benchmark/runtime_benchmark/plot_results.R")
 \end{frame}
 
 
-\begin{frame}{Memory Comparison Against Mboost}
+\begin{frame}{Memory Comparison With Mboost}
 
 \begin{center}
-<<out.width="11cm",out.height="6cm",echo=FALSE,fig.asp=0.5455,warning=FALSE,message=FALSE,fig.height=6,fig.width=11>>=
+<<out.width="11cm",out.height="6cm",echo=FALSE,fig.asp=0.5455,warning=FALSE,message=FALSE,fig.height=6,fig.width=11,fig.cap="Memory benchmark on simulated data with 1000 iterations, 50000 observations, and 1000 base-learner.">>=
 source(file = "./../benchmark/mem_benchmark/plot_results.R")
 @
 \end{center}

@@ -1,4 +1,6 @@
-\begin{frame}{About Compboost}
+\begin{frame}{About compboost}
+
+The \texttt{compboost} package is a fast and flexible framework for model-based boosting completely written in \texttt{C++}:
 
 \begin{itemize}
 
