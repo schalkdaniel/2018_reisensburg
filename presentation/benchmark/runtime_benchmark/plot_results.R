@@ -384,8 +384,8 @@ grid.arrange(y.label,
   arrangeGrob(
     gg.rows.linear + theme(legend.position="none") + xlab("") + ylim(0, 250),
     gg.rows.spline + theme(legend.position="none") + ylab("") + xlab("") + ylim(0, 250),
-    gg.rows.linear.rel + xlab("") + ylim(0, 10),
-    gg.rows.spline.rel + xlab("") + ylim(0, 10),
+    gg.rows.linear.rel + xlab(""),
+    gg.rows.spline.rel + xlab(""),
     layout_matrix = layout.mat,
     top = gtitle,
     bottom = x.label

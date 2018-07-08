@@ -14,7 +14,7 @@ The \texttt{compboost} package is a fast and flexible framework for model-based 
 		\texttt{R} API is written in \texttt{R6} to provide convenient wrapper.
 
 	\item 
-	  Major parts of the \texttt{compboost} functionality are unit tested against \texttt{mboost} to ensure correct use.
+	  Major parts of the \texttt{compboost} functionality are unit tested against \texttt{mboost} to ensure correctness.
 
 \end{itemize}
 

@@ -15,11 +15,11 @@
     Inherent (unbiased) feature selection  \cite{hofner2011framework}.
     
   \item
-    The resulting model is sparse since important effects are selected first and therefore 
+    Resulting model is sparse since important effects are selected first and therefore 
     it is able to learn in high-dimensional feature spaces ($p \gg n$).
     
   \item 
-    The parameters are updated iteratively. Therefore, the 
+    Parameters are updated iteratively. Therefore, the 
     whole trace of how the model evolves is available.    
     
 \end{itemize}
@@ -104,7 +104,7 @@ Most popular package for model-based boosting is \texttt{mboost} \parbox{1cm}{\p
 \begin{itemize}
 
   \item
-    The main parts of \texttt{mboost} are written in \texttt{R} and gets slow for large datasets.
+    Main parts of \texttt{mboost} are written in \texttt{R} and gets slow for large datasets.
 
   \item 
     Complex implementation:

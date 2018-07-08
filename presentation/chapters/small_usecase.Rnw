@@ -1,6 +1,6 @@
 \begin{frame}[fragile]{Initialize Model}
 
-We are interested in modelling the risk of diabetes of female Pima Indians. The interesting features are \texttt{age} and the \texttt{mass}. 
+We are interested in modelling the risk of diabetes of female Pima Indians. Interesting features are \texttt{age} and the \texttt{mass}. 
 
 <<eval=FALSE>>=
 library(compboost)
