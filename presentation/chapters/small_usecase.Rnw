@@ -123,7 +123,7 @@ cboost$train(100, trace = FALSE)
 mod = mboost(deaths ~ bbs(year, lambda = 2), data = VonBort, family = Poisson(), 
   control = boost_control(mstop = 100, nu = 0.05))
 
-head(cbind(
+head(data.frame(
   compboost = cboost$coef()[["year_spline"]], 
   mboost = coef(mod)[["bbs(year, lambda = 2)"]]))
 @
