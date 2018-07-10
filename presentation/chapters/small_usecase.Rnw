@@ -12,9 +12,9 @@ cboost = Compboost$new(data = PimaIndiansDiabetes, target = "diabetes",
   loss = BinomialLoss$new())
 
 # Adding a linear and spline base-learner to the Compboost object:
-cboost$addBaselearner("mass", "linear", PolynomialBlearner, 
+cboost$addBaselearner(feature = "mass", id = "linear", PolynomialBlearner, 
   degree = 1, intercept = TRUE)
-cboost$addBaselearner("age", "spline", PSplineBlearner, 
+cboost$addBaselearner(feature = "age", id = "spline", PSplineBlearner, 
   degree = 3, n.knots = 10, penalty = 2, differences = 2)
 @
 

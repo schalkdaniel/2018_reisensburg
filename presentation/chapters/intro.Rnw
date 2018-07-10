@@ -8,6 +8,7 @@
 \end{figure}
 
 \vspace{-1.2cm}
+\pause
 
 \begin{itemize}
 
@@ -98,6 +99,7 @@ Most popular package for model-based boosting is \texttt{mboost} \parbox{1cm}{\p
     Extendible with custom base-learner and losses. 
 
 \end{itemize}
+\pause
 
 \textbf{So, why another boosting implementation?}
 
