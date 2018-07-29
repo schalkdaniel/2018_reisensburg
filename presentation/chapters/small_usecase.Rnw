@@ -60,10 +60,10 @@ cboost
 <<>>=
 cboost$train(1000) # Set model to iteration 1000
 
-table(cboost$selected()) # Table of vector of selected base-learner
+table(cboost$getSelectedBaselearner()) # Table of vector of selected base-learner
 cboost$train(3000) # Set model to iteration 3000
-str(cboost$risk()) # Get vector of inbag risk
-str(cboost$coef()) # Get list of estimated parameter
+str(cboost$getInbagRisk()) # Get vector of inbag risk
+str(cboost$getEstimatedCoef()) # Get list of estimated parameter
 @
 
 \end{frame}

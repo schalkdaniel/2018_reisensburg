@@ -90,7 +90,7 @@ options(width=60)
 <<child='chapters/intro.Rnw'>>=
 @
 
-\section{About Compboost}
+\section{About compboost}
 
 <<child='chapters/about_cboost.Rnw'>>=
 @
