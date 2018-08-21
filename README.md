@@ -16,7 +16,7 @@ git clone --recursive https://github.com/schalkdaniel/2018_reisensburg.git
 
 ## Rendering The Talk
 
-To get the pdf the following steps are run automatically:
+To get the pdf the following steps are executed automatically:
 
 1. Build and load compboost using `devtools::load_all()`.
 2. Make the drake plan to access the benchmark images.
