@@ -1,0 +1,48 @@
+\begin{frame}{Next Steps}
+
+\begin{itemize}
+
+  \item
+    Implementing more base-learner and loss functions.
+    
+  \item
+    Adding support for multiclass classification.
+    
+  \item
+    Running the algorithm in parallel.
+    
+  \item 
+    Using sparse matrices to store, e.g., spline data matrices.
+    
+  \item 
+    Releasing the package on \textit{CRAN}.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Where to Find}
+
+\begin{itemize}
+
+  \item
+    Developed on \emph{GitHub}:
+    \begin{center}
+      \url{www.github.com/schalkdaniel/compboost}
+    \end{center}
+
+  \item 
+    Additional resources on the project page:
+    \begin{center}
+    	\url{www.compboost.org}
+    \end{center}
+
+  \item 
+  	Bug reports via the \href{https://github.com/schalkdaniel/compboost/issues}{issue tracker}.
+
+\end{itemize}
+\vspace{0.4cm}
+\begin{center}
+\textbf{Contributions are highly welcome!}
+\end{center}
+\end{frame}
