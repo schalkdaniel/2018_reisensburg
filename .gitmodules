@@ -1,0 +1,3 @@
+[submodule "compboost"]
+	path = compboost
+	url = https://github.com/schalkdaniel/compboost.git

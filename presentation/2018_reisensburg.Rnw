@@ -116,6 +116,7 @@ options(width=60)
 % \end{frame}
 
 \begin{frame}[plain]{References}
+\vphantom{\cite{sanderson2016armadillo}}
 \begingroup
   \renewcommand{\section}[2]{}
   \scriptsize
