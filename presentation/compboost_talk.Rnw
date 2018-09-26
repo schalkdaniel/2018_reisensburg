@@ -17,7 +17,7 @@
 
 \title{Compboost}
 \subtitle{Modular framework for \textbf{comp}onent-wise \textbf{boost}ing}
-\date{10 July 2018}
+\date{\today}
 \author{Daniel Schalk, Janek Thomas, Bernd Bischl \newline daniel.schalk@stat.uni-muenchen.de}
 \institute{LMU Munich\\Working Group Computational Statistics}
 
@@ -73,10 +73,15 @@ opts_chunk$set(
 
 # Prevent code from printing over margin:
 options(width=60)
+
+devtools::load_all("../compboost")
 @
 
 
+
 \maketitle
+
+
 
 \author{Daniel Schalk, Janek Thomas, Bernd Bischl}
 
@@ -87,26 +92,27 @@ options(width=60)
 \section{Why Component-Wise Boosting?}
 % \addtocounter{framenumber}{-1}
 
-<<child='chapters/intro.Rnw'>>=
+<<child='chapters/01_intro.Rnw'>>=
 @
 
 \section{About compboost}
 
-<<child='chapters/about_cboost.Rnw'>>=
+<<child='chapters/02_about_cboost.Rnw'>>=
 @
 
 \section{Usecase}
 
-<<child='chapters/small_usecase.Rnw'>>=
+<<child='chapters/03_small_usecase.Rnw'>>=
 @
 
 \section{Benchmark}
-<<child='chapters/cboost_vs_others.Rnw'>>=
+
+<<child='chapters/04_cboost_vs_others.Rnw'>>=
 @
 
 \section{Next Steps}
 
-<<child='chapters/next_steps.Rnw'>>=
+<<child='chapters/05_next_steps.Rnw'>>=
 @
 
 \appendix

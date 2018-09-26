@@ -9,37 +9,29 @@ data(PimaIndiansDiabetes, package = "mlbench")
 
 # Defining a new Compboost object:
 cboost = Compboost$new(data = PimaIndiansDiabetes, target = "diabetes", 
-  loss = BinomialLoss$new())
+  loss = LossBinomial$new())
 
 # Adding a linear and spline base-learner to the Compboost object:
-cboost$addBaselearner(feature = "mass", id = "linear", PolynomialBlearner, 
+cboost$addBaselearner(feature = "mass", id = "linear", BaselearnerPolynomial, 
   degree = 1, intercept = TRUE)
-cboost$addBaselearner(feature = "age", id = "spline", PSplineBlearner, 
+cboost$addBaselearner(feature = "age", id = "spline", BaselearnerPSpline, 
   degree = 3, n.knots = 10, penalty = 2, differences = 2)
 @
 
 <<include=FALSE>>=
 library(mboost)
 
-dir.linux   = "/home/daniel/github_repos/compboost"
-dir.windows = "../../../compboost"
-
-if (dir.exists(dir.windows)) {
-  devtools::load_all(dir.windows)
-}
-if (dir.exists(dir.linux)) {
-  devtools::load_all(dir.linux)
-}
-
 data(PimaIndiansDiabetes, package = "mlbench")
 
-cboost = Compboost$new(PimaIndiansDiabetes, "diabetes", 
-  loss = BinomialLoss$new())
+# Defining a new Compboost object:
+cboost = Compboost$new(data = PimaIndiansDiabetes, target = "diabetes", 
+  loss = LossBinomial$new())
 
-cboost$addBaselearner("mass", "linear", PolynomialBlearner, 
+# Adding a linear and spline base-learner to the Compboost object:
+cboost$addBaselearner(feature = "mass", id = "linear", BaselearnerPolynomial, 
   degree = 1, intercept = TRUE)
-cboost$addBaselearner("age", "spline", PSplineBlearner, 
-	degree = 3, n.knots = 10, penalty = 2, differences = 2)
+cboost$addBaselearner(feature = "age", id = "spline", BaselearnerPSpline, 
+  degree = 3, n.knots = 10, penalty = 2, differences = 2)
 @
 
 
@@ -48,7 +40,7 @@ cboost$addBaselearner("age", "spline", PSplineBlearner,
 \begin{frame}[fragile]{Initialize Model}
 
 <<>>=
-cboost$train(2000, trace = FALSE) 
+cboost$train(2000, trace = 1000) 
 cboost
 @
 
@@ -103,7 +95,7 @@ constInitPoisson = function (truth) {
   return (log(mean.default(truth)))
 }
 # Define custom loss:
-my.poisson.loss = CustomLoss$new(lossPoisson, gradPoisson, constInitPoisson)
+my.poisson.loss = LossCustom$new(lossPoisson, gradPoisson, constInitPoisson)
 @
 
 \end{frame}
@@ -116,15 +108,15 @@ data(VonBort, package = "vcd")
 
 # Run compboost with custom loss:
 cboost = Compboost$new(VonBort, "deaths", loss = my.poisson.loss)
-cboost$addBaselearner("year", "spline", PSplineBlearner)
-cboost$train(100, trace = FALSE)
+cboost$addBaselearner("year", "spline", BaselearnerPSpline)
+cboost$train(100, trace = 0)
 
 # Run mboost with pre-defined Poisson family:
 mod = mboost(deaths ~ bbs(year, lambda = 2), data = VonBort, family = Poisson(), 
   control = boost_control(mstop = 100, nu = 0.05))
 
 head(data.frame(
-  compboost = cboost$coef()[["year_spline"]], 
+  compboost = cboost$getEstimatedCoef()[["year_spline"]], 
   mboost = coef(mod)[["bbs(year, lambda = 2)"]]))
 @
 

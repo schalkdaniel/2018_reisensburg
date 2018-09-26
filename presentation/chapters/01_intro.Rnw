@@ -1,0 +1,68 @@
+\begin{frame}{Why Component-Wise Boosting?}
+
+\vspace{-0.6cm}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.75\textwidth]{images/comp_boosting.png}
+\end{figure}
+
+\vspace{-1.2cm}
+\pause
+
+\begin{itemize}
+
+  \item
+    Inherent (unbiased) feature selection  \cite{hofner2011framework}.
+    
+  \item
+    Resulting model is sparse since important effects are selected first and therefore 
+    it is able to learn in high-dimensional feature spaces ($p \gg n$).
+    
+  \item 
+    Parameters are updated iteratively. Therefore, the 
+    whole trace of how the model evolves is available.    
+    
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Available R Packages}
+
+Most popular package for model-based boosting is \texttt{mboost} \parbox{1cm}{\parbox{4cm}{\cite{mboost1}:}}
+
+\begin{itemize}
+	
+  \item
+    Large number of available base-learner and losses.
+
+  \item 
+    Extended to more complex problems:
+    \begin{itemize}
+      \item Functional data \cite{brockhaus2017boosting}
+      \item GAMLSS models \cite{mayr2012generalized}
+      \item Survival analysis
+    \end{itemize}
+  \item 
+    Extendible with custom base-learner and losses. 
+
+\end{itemize}
+\pause
+
+\textbf{So, why another boosting implementation?}
+
+\begin{itemize}
+
+  \item
+    Main parts of \texttt{mboost} are written in \texttt{R} and gets slow for large datasets.
+
+  \item 
+    Complex implementation:
+    \begin{itemize} 
+      \item Nested scopes 
+      \item Mixture of different \texttt{R} class systems
+    \end{itemize}
+\end{itemize}
+
+\end{frame}

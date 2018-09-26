@@ -12,9 +12,6 @@
     Running the algorithm in parallel.
     
   \item 
-    Using sparse matrices to store, e.g., spline data matrices.
-    
-  \item 
     Releasing the package on \textit{CRAN}.
 
 \end{itemize}
