@@ -121,3 +121,17 @@ head(data.frame(
 @
 
 \end{frame}
+
+\begin{frame}[fragile]{Using Wrapper Functions}
+
+Instead of defining all base-learner individually we can use \texttt{boostLinear()} or \texttt{boostSplines()} to boost just linear or spline base-learner on all features:
+
+<<>>=
+# Run wrapper again with custom loss:
+cboost = boostSplines(data = VonBort, target = "deaths", loss = my.poisson.loss, 
+  trace = 50, learning.rate = 0.01, iterations = 200)
+
+head(cboost$getBaselearnerNames())
+@
+
+\end{frame}
